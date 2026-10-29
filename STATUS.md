@@ -3,7 +3,7 @@
 | Requisito | Estado |
 |---|---|
 | Hero editorial responsiva com fotografia real do banner anexado | Implementado (sem embalagens artificiais) |
-| Carrossel com os cinco banners Dailus enviados, autoplay, swipe, teclado e controles | Implementado |
+| Carrossel com os nove banners Dailus enviados, autoplay, swipe, teclado e controles | Implementado |
 | Busca, filtros, categorias, linhas, ordenação, detalhes e até cinco imagens | Implementado |
 | Cards com botão de adicionar fixo e efeito hover | Implementado |
 | Sacola persistente, quantidades e dados do cliente | Implementado |
@@ -20,3 +20,5 @@
 | Analytics avançados de conversão, dispositivos e buscas vazias em painel | Parcial: eventos coletados, painel simples |
 | Rate limit distribuído e gestão multiusuário | Pendente para produção em escala |
 | Compilação Next.js e teste end-to-end | Não validado neste ambiente por DNS/npm indisponível |
+
+**29/10:** Corrigido formato dos blocos `generator` e `datasource` no Prisma (versão 6). Nove banners adicionados. Build ainda não validado por falta de acesso ao npm neste ambiente.

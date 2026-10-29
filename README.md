@@ -4,13 +4,17 @@ Projeto do catálogo digital da **Aladdin Distribuidora (Brasília/DF)**. **Não
 
 ## Destaque da entrega: carrossel dos banners originais
 
-Os cinco arquivos enviados pelo cliente aparecem como slides na seção “Em destaque” da página inicial. Não há artes recriadas e não há embalagens inventadas.
+Os nove arquivos enviados pelo cliente aparecem como slides na seção “Em destaque” da página inicial. Não há artes recriadas e não há embalagens inventadas.
 
 1. `DESK-SWEET-SKIN-CANDY.webp`
 2. `DESK-SWEET-SKIN-NOVOS-SABORES.webp`
 3. `DESK-TOP-CHROME.webp`
 4. `DESKTOP-PO-TRANSLUCIDO.webp`
 5. `DESK-LAPIS-LABIAL-NOVAS-CORES.webp`
+6. `DESK-GIMME-GUMMY_1.webp`
+7. `DESK-SPACE-SUGAR_1.webp`
+8. `DESK-LAPIS-ULTRA-CORES.webp`
+9. `DESK-BRUMINHA.webp`
 
 Slides com navegação por setas, bolinhas de posição, troca automática de 6,5 segundos, pausa durante hover/foco, teclado e swipe em telas de toque. O carrossel mantém os arquivos originais, inclusive imagens/textos das embalagens. No painel administrativo em **Banners / slides**, é possível alterar a ordem, adicionar ou remover slides, depois salvar no banco.
 
@@ -53,7 +57,7 @@ Sem a configuração Neon, `/api/products` mostra os **10 produtos de exemplo re
 ## Testes e limitações da entrega
 
 - Checagem de sintaxe realizada nos arquivos TypeScript/TSX e JS; nenhum erro de sintaxe identificado.
-- Os cinco banners e logos estão fisicamente incluídos em `/public/assets`; não dependem de geração de imagem.
+- Os nove banners e logos estão fisicamente incluídos em `/public/assets`; não dependem de geração de imagem.
 - **Não foi possível executar `npm install` nem o build do Next.js neste ambiente:** o domínio `registry.npmjs.org` não resolve aqui. É necessário executar `npm install && npm run build` com internet na máquina/Vercel antes de considerar o deploy validado.
 - As imagens dos produtos do catálogo foram vinculadas às URLs de referência da Dailus e incluem fallbacks visuais extraídos dos banners originais. Essas URLs externas podem mudar; para produção durável, importe as fotos autorizadas para o R2.
 - Login administrativo usa credenciais de ambiente, não cadastro multiusuário. A proteção contra tentativas abusivas deve ser reforçada com rate limiting persistente (ex.: Cloudflare/WAF/Redis) antes de exposição pública em escala.
@@ -62,3 +66,10 @@ Sem a configuração Neon, `/api/products` mostra os **10 produtos de exemplo re
 ## Estrutura
 
 `app/`: telas, estilos e endpoints. `app/admin`: administração. `app/api`: catálogo, banners, pedidos, PDF, métricas, acesso admin e imagens. `lib/`: autenticação, Prisma, storage, Mercus. `prisma/schema.prisma`: entidades. `scripts/seed.mjs`: dados reais de exemplo. `public/assets`: peças originais e fotos recortadas dos banners para apoio visual.
+
+## Correção da falha de build — 29/10/2026
+
+- O schema Prisma anterior continha o bloco `generator` e o `datasource` em apenas uma linha. Ambos foram reescritos no formato multilinha oficial do Prisma 6, sem alterar o nome ou o tipo dos campos.
+- Mantido `prisma generate && next build` no comando de compilação.
+- Os quatro banners adicionais enviados foram incluídos como arquivos originais, totalizando nove campanhas.
+- A validação com `npx prisma validate` e o build completo continuam **não executados**, devido à indisponibilidade do registro npm neste ambiente. Para confirmação após baixar: `npm install`, `npx prisma validate`, `npm run build`.

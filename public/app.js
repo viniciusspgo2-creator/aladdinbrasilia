@@ -3,7 +3,7 @@ if(window.__aladdinStarted)return;window.__aladdinStarted=true;
 const $=(id)=>document.getElementById(id);
 const escape=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const money=v=>Number(v).toLocaleString('pt-BR',{style:'currency',currency:'BRL'});
-const fallbackBanners=['/assets/DESK-SWEET-SKIN-CANDY.webp','/assets/DESK-SWEET-SKIN-NOVOS-SABORES.webp','/assets/DESK-TOP-CHROME.webp','/assets/DESKTOP-PO-TRANSLUCIDO.webp','/assets/DESK-LAPIS-LABIAL-NOVAS-CORES.webp'];
+const fallbackBanners=['/assets/DESK-SWEET-SKIN-CANDY.webp','/assets/DESK-SWEET-SKIN-NOVOS-SABORES.webp','/assets/DESK-TOP-CHROME.webp','/assets/DESKTOP-PO-TRANSLUCIDO.webp','/assets/DESK-LAPIS-LABIAL-NOVAS-CORES.webp','/assets/DESK-GIMME-GUMMY_1.webp','/assets/DESK-SPACE-SUGAR_1.webp','/assets/DESK-LAPIS-ULTRA-CORES.webp','/assets/DESK-BRUMINHA.webp'];
 let products=[],banners=fallbackBanners, bannerIndex=0,bannerTimer,paused=false,changing=false,category='',line='',isNew=false,isFeatured=false,maxPrice=500,sort='featured',search='';
 let cart={};try{cart=JSON.parse(localStorage.getItem('aladdin_cart')||'{}')||{};}catch{};
 let visitor='';try{visitor=localStorage.getItem('aladdin_visitor')||crypto.randomUUID();localStorage.setItem('aladdin_visitor',visitor)}catch{visitor='anonymous'};

@@ -7,5 +7,9 @@ export const defaultBanners=[
  '/assets/DESK-SWEET-SKIN-NOVOS-SABORES.webp',
  '/assets/DESK-TOP-CHROME.webp',
  '/assets/DESKTOP-PO-TRANSLUCIDO.webp',
- '/assets/DESK-LAPIS-LABIAL-NOVAS-CORES.webp'
+ '/assets/DESK-LAPIS-LABIAL-NOVAS-CORES.webp',
+ '/assets/DESK-GIMME-GUMMY_1.webp',
+ '/assets/DESK-SPACE-SUGAR_1.webp',
+ '/assets/DESK-LAPIS-ULTRA-CORES.webp',
+ '/assets/DESK-BRUMINHA.webp'
 ];
