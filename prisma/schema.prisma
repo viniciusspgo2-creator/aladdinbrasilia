@@ -1,0 +1,57 @@
+generator client { provider = "prisma-client-js" }
+datasource db { provider = "postgresql" url = env("DATABASE_URL") }
+
+model Product {
+ id String @id
+ name String
+ brand String @default("Dailus")
+ sku String @default("")
+ mercusCode String @default("")
+ category String
+ subcategory String @default("")
+ line String @default("")
+ description String @default("") @db.Text
+ price Float?
+ showPrice Boolean @default(false)
+ unit String @default("Unidade")
+ featured Boolean @default(false)
+ isNew Boolean @default(false)
+ active Boolean @default(true)
+ order Int @default(0)
+ images String[]
+ fallback String @default("")
+ source String @default("")
+ createdAt DateTime @default(now())
+ updatedAt DateTime @updatedAt
+ @@index([category, line, active])
+}
+
+model PurchaseOrder {
+ id String @id @default(cuid())
+ buyerName String
+ buyerCompany String @default("")
+ buyerPhone String @default("")
+ seller String @default("")
+ notes String @default("") @db.Text
+ items Json
+ units Int
+ createdAt DateTime @default(now())
+ @@index([createdAt])
+}
+
+model MetricEvent {
+ id String @id @default(cuid())
+ type String
+ productId String @default("")
+ label String @default("")
+ visitor String @default("")
+ createdAt DateTime @default(now())
+ @@index([type, createdAt])
+ @@index([productId, type])
+}
+
+model SiteSetting {
+ key String @id
+ value Json
+ updatedAt DateTime @updatedAt
+}

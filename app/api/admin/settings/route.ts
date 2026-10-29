@@ -1,0 +1,5 @@
+import {prisma,dbReady} from '../../../../lib/db';
+import {isAdmin,unauthorized} from '../../../../lib/auth';
+import {defaultBanners} from '../../../../lib/seed-products';
+export async function GET(){if(!await isAdmin())return unauthorized();if(!dbReady)return Response.json({banners:defaultBanners,mode:'demo'});const row=await prisma.siteSetting.findUnique({where:{key:'banners'}});return Response.json({banners:Array.isArray(row?.value)?row.value:defaultBanners});}
+export async function POST(req:Request){if(!await isAdmin())return unauthorized();if(!dbReady)return Response.json({error:'Configure DATABASE_URL.'},{status:503});const body=await req.json().catch(()=>({}));if(!Array.isArray(body.banners)||body.banners.length>12||body.banners.some((x:unknown)=>typeof x!=='string'||x.length>2000||!(/^\/assets\//.test(x)||/^https:\/\//.test(x))))return Response.json({error:'Banners inválidos.'},{status:400});await prisma.siteSetting.upsert({where:{key:'banners'},update:{value:body.banners},create:{key:'banners',value:body.banners}});return Response.json({ok:true});}

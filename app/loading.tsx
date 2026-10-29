@@ -1,0 +1,1 @@
+export default function Loading(){return <div style={{display:'grid',placeItems:'center',minHeight:'75vh',background:'#fff7fa',color:'#d94b78',fontWeight:800,letterSpacing:2,fontSize:13}}>ALADDIN DISTRIBUIDORA · CARREGANDO ✦</div>}

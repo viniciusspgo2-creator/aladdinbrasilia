@@ -1,0 +1,7 @@
+{
+ "name":"aladdin-distribuidora-catalogo","version":"1.0.0","private":true,
+ "scripts":{"dev":"next dev","build":"prisma generate && next build","start":"next start","db:push":"prisma db push","db:seed":"node scripts/seed.mjs","typecheck":"tsc --noEmit"},
+ "dependencies":{"next":"^15.5.12","react":"^19.2.0","react-dom":"^19.2.0","@prisma/client":"^6.19.3","prisma":"^6.19.3","@aws-sdk/client-s3":"^3.900.0","sharp":"^0.34.4","pdf-lib":"^1.17.1","zod":"^4.1.12","lucide-react":"^0.468.0","framer-motion":"^12.23.0"},
+ "devDependencies":{"typescript":"^5.9.2","@types/node":"^22.18.0","@types/react":"^19.2.2","@types/react-dom":"^19.2.2","tailwindcss":"^3.4.18","postcss":"^8.5.6","autoprefixer":"^10.4.21"},
+ "engines":{"node":">=20"}
+}

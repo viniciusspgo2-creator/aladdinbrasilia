@@ -1,0 +1,6 @@
+import {prisma,dbReady} from '../../../../../lib/db';
+import {isAdmin,unauthorized} from '../../../../../lib/auth';
+import {z} from 'zod';
+const allowed=z.object({name:z.string().min(2),brand:z.string(),sku:z.string(),mercusCode:z.string(),category:z.string().min(1),subcategory:z.string(),line:z.string(),description:z.string(),price:z.number().nullable(),showPrice:z.boolean(),unit:z.string(),featured:z.boolean(),isNew:z.boolean(),active:z.boolean(),order:z.number().int(),images:z.array(z.string()).max(5),fallback:z.string(),source:z.string()}).partial();
+export async function PUT(req:Request,{params}:{params:Promise<{id:string}>}){if(!await isAdmin())return unauthorized();if(!dbReady)return Response.json({error:'Banco indisponível'},{status:503});const {id}=await params;const result=allowed.safeParse(await req.json().catch(()=>({})));if(!result.success)return Response.json({error:'Dados inválidos',issues:result.error.flatten()},{status:400});const product=await prisma.product.update({where:{id},data:result.data});return Response.json({product});}
+export async function DELETE(_req:Request,{params}:{params:Promise<{id:string}>}){if(!await isAdmin())return unauthorized();if(!dbReady)return Response.json({error:'Banco indisponível'},{status:503});const {id}=await params;await prisma.product.delete({where:{id}});return Response.json({ok:true});}
