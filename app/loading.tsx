@@ -1,1 +1,1 @@
-export default function Loading(){return <div style={{display:'grid',placeItems:'center',minHeight:'75vh',background:'#fff7fa',color:'#d94b78',fontWeight:800,letterSpacing:2,fontSize:13}}>ALADDIN DISTRIBUIDORA · CARREGANDO ✦</div>}
+export default function Loading(){return <main aria-busy="true" style={{padding:'15vh 8vw',minHeight:'75vh',background:'#F7F4EF',color:'#5C635D'}}><p>Preparando seu catálogo…</p><div className="product-grid">{[1,2,3].map(i=><div key={i} className="skeleton-card"><div/><span/><span/></div>)}</div></main>}

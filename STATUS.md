@@ -1,24 +1,22 @@
-# Checklist do briefing — estado desta entrega
+# Estado da entrega Premium
 
-| Requisito | Estado |
+A atualização das especificações visuais e funcionais está implementada. Leia `LEIA-ME-PREMIUM.md` para atualizar e usar os novos recursos; veja `VALIDACAO_PREMIUM.md` para evidências e limitações dos testes.
+
+| Área | Estado |
 |---|---|
-| Hero editorial responsiva com fotografia real do banner anexado | Implementado (sem embalagens artificiais) |
-| Carrossel com os nove banners Dailus enviados, autoplay, swipe, teclado e controles | Implementado |
-| Busca, filtros, categorias, linhas, ordenação, detalhes e até cinco imagens | Implementado |
-| Cards com botão de adicionar fixo e efeito hover | Implementado |
-| Sacola persistente, quantidades e dados do cliente | Implementado |
-| PDF de pedido local e PDF vinculado a pedido salvo no Neon | Implementado; histórico depende do Neon |
-| Compartilhamento via WhatsApp | Implementado; requer configurar número comercial |
-| Painel admin com autenticação, CRUD e duplicação de produtos | Implementado; requer Neon |
-| Até cinco imagens, conversão WebP e thumbnails no R2 | Implementado; requer R2 |
-| Importação segura de URL de foto do fabricante | Implementado, restrito a hosts Dailus/Shopify |
-| Gestão de banners e ordem no painel | Implementado; requer Neon |
-| Métricas básicas de acessos, produtos, sacola, PDF, pedidos | Implementado; requer Neon |
-| Importação/exportação CSV | Implementado |
-| Conexão real / sincronização com Mercus | Pendente: documentação e credenciais da API |
-| Categorias editáveis em tela separada / ações de massa | Parcial: categoria por campo do produto |
-| Analytics avançados de conversão, dispositivos e buscas vazias em painel | Parcial: eventos coletados, painel simples |
-| Rate limit distribuído e gestão multiusuário | Pendente para produção em escala |
-| Compilação Next.js e teste end-to-end | Não validado neste ambiente por DNS/npm indisponível |
+| Identidade warm e tipografia local | Implementada |
+| Cards, copy, microinterações e feedback | Implementados |
+| Quick view, favoritos e busca com sugestões | Implementados |
+| Comparação e histórico de visualizações | Implementados |
+| Sacola, subtotais, relacionados e persistência | Implementados |
+| Menu mobile, teclado e tema escuro | Implementados |
+| Admin com preview, drag & drop e edição em lote | Implementado; persistência depende do Neon configurado |
+| Histórico de alterações e métricas de interação | Implementados; dependem do Neon configurado |
+| Teste A/B opcional de título | Implementado; desativado por padrão |
+| Compilação de produção e tipos | Aprovados |
+| Fluxo público e PDF de prévia | Testados em navegador real |
+| Interface administrativa | Testada com API simulada |
+| Neon e R2 de produção | Requerem validação com as credenciais do ambiente |
+| Mercus | Continua pendente de documentação e credenciais oficiais |
 
-**29/10:** Corrigido formato dos blocos `generator` e `datasource` no Prisma (versão 6). Nove banners adicionados. Build ainda não validado por falta de acesso ao npm neste ambiente.
+A atualização não adiciona avaliações, vendas ou prova social fictícias.
